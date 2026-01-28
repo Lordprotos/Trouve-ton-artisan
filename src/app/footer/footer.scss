@@ -1,0 +1,45 @@
+// Styles personnalisés pour le footer avec Bootstrap
+
+.filter-invert {
+  filter: none; // Retirer l'inversion sur fond clair
+}
+
+.text-warning {
+  color: var(--color-accent-green) !important;
+}
+
+.bg-dark {
+  background-color: #fafbfc !important;
+  border-top: 1px solid #e9ecef;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.03);
+}
+
+// Ajustement des textes pour le fond clair
+footer {
+  color: var(--color-neutral) !important;
+  
+  h5, h6 {
+    color: var(--color-neutral) !important;
+  }
+  
+  p, small {
+    color: var(--color-text-light) !important;
+  }
+  
+  a {
+    color: var(--color-neutral) !important;
+    
+    &:hover {
+      color: var(--color-primary) !important;
+      transition: color 0.3s ease;
+    }
+  }
+  
+  .text-light, .text-white {
+    color: var(--color-neutral) !important;
+  }
+  
+  .text-muted {
+    color: var(--color-text-light) !important;
+  }
+}

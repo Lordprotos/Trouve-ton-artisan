@@ -1,1 +1,56 @@
-/* You can add global styles to this file, and also import other style files */
+// Palette de couleurs professionnelle
+:root {
+  // Couleurs principales de la palette
+  --color-primary-light: #f1f8fc;    // Bleu très clair (backgrounds)
+  --color-primary: #007ac7;          // Bleu principal (boutons, liens)
+  --color-primary-dark: #004972;     // Bleu foncé (hover, emphasis)
+  --color-neutral: #384050;          // Gris foncé (textes principaux)
+  --color-accent-red: #d42c2c;       // Rouge accent (alertes, erreurs)
+  --color-accent-green: #82b864;     // Vert accent (succès, validation)
+  
+  // Couleurs dérivées pour le design
+  --color-white: #ffffff;
+  --color-text-dark: #384050;
+  --color-text-light: #6c757d;
+  --color-border: #dee2e6;
+  --color-bg-light: #f8f9fa;
+  --color-shadow: rgba(56, 64, 80, 0.1);
+  
+  // Gradients professionnels
+  --gradient-primary: linear-gradient(135deg, #007ac7 0%, #004972 100%);
+  --gradient-light: linear-gradient(135deg, #f1f8fc 0%, #e9ecef 100%);
+  --gradient-accent: linear-gradient(135deg, #82b864 0%, #6ea54a 100%);
+}
+
+// Reset CSS et styles globaux
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  color: var(--color-text-dark);
+  background-color: var(--color-primary-light);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+input, textarea, select {
+  font-family: inherit;
+}

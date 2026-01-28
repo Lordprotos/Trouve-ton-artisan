@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-light custom-header">
+  <div class="container">
+    <!-- Logo/Brand - toujours à gauche -->
+    <a class="navbar-brand fw-bold d-flex align-items-center" routerLink="/home">
+      <img src="Logo.png" alt="Trouve ton artisan" height="40" class="me-2">
+      Trouve ton artisan
+    </a>
+
+    <!-- Mobile menu toggle - toujours à droite -->
+    <button 
+      class="navbar-toggler ms-auto" 
+      type="button" 
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="isMenuOpen"
+      [attr.data-bs-toggle]="'collapse'"
+      [attr.data-bs-target]="'#navbarNav'">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navigation menu -->
+    <div class="collapse navbar-collapse" id="navbarNav" [class.show]="isMenuOpen">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">
+            Accueil
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/artisans" routerLinkActive="active">
+            Artisans
+          </a>
+        </li>
+      </ul>
+
+      <!-- Search form -->
+      <form class="d-flex" (ngSubmit)="onSearch()">
+        <input 
+          class="form-control me-2" 
+          type="search" 
+          placeholder="Rechercher un artisan..." 
+          [(ngModel)]="searchTerm"
+          name="search">
+        <button class="btn btn-outline-light" type="submit">
+          Rechercher
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>

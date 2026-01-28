@@ -1,0 +1,155 @@
+<div class="container py-5" *ngIf="!loading">
+  <!-- Bouton retour -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <button (click)="goBack()" class="btn btn-outline-secondary">
+        ← Retour à la liste
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="artisan" class="row">
+    <!-- Informations principales de l'artisan -->
+    <div class="col-lg-8 mb-4">
+      <div class="card shadow h-100">
+        <div class="card-body">
+          <!-- En-tête avec nom et badge recommandé -->
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <h1 class="display-5 text-primary mb-0">{{ artisan.name }}</h1>
+            <span *ngIf="artisan.top" class="badge bg-warning text-dark fs-6">
+              ⭐ Recommandé
+            </span>
+          </div>
+
+          <!-- Spécialité et catégorie -->
+          <div class="mb-3">
+            <span class="badge bg-primary fs-6 me-2">{{ artisan.specialty }}</span>
+            <span class="badge bg-secondary fs-6">{{ artisan.category }}</span>
+          </div>
+
+          <!-- Note avec étoiles -->
+          <div class="mb-3">
+            <div class="d-flex align-items-center">
+              <span class="text-warning me-2 fs-4">
+                <span *ngFor="let star of getStars(artisan.note)">{{ star }}</span>
+              </span>
+              <span class="fs-5 fw-bold">{{ artisan.note }}/5</span>
+            </div>
+          </div>
+
+          <!-- Localisation -->
+          <div class="mb-4">
+            <h5 class="text-secondary">📍 Localisation</h5>
+            <p class="fs-5">{{ artisan.location }}</p>
+          </div>
+
+          <!-- Section À propos -->
+          <div class="mb-4">
+            <h5 class="text-secondary">À propos</h5>
+            <p class="lead">{{ artisan.about }}</p>
+          </div>
+
+          <!-- Site web -->
+          <div *ngIf="artisan.website" class="mb-3">
+            <h5 class="text-secondary">Site web</h5>
+            <a [href]="artisan.website" target="_blank" class="btn btn-outline-primary">
+              🌐 Visiter le site web
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Formulaire de contact -->
+    <div class="col-lg-4">
+      <div class="card shadow h-100">
+        <div class="card-header bg-primary text-white">
+          <h5 class="mb-0">✉️ Contacter {{ artisan.name }}</h5>
+        </div>
+        <div class="card-body">
+          <!-- Message de confirmation -->
+          <div *ngIf="messageSent" class="alert alert-success" role="alert">
+            <strong>Message envoyé !</strong> Votre demande a été transmise à l'artisan.
+          </div>
+
+          <form (ngSubmit)="onSubmitContact()" #contactFormRef="ngForm">
+            <!-- Nom -->
+            <div class="mb-3">
+              <label for="name" class="form-label">Votre nom *</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                id="name"
+                [(ngModel)]="contactForm.name"
+                name="name"
+                required
+                placeholder="Entrez votre nom"
+              >
+            </div>
+
+            <!-- Sujet -->
+            <div class="mb-3">
+              <label for="subject" class="form-label">Objet *</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                id="subject"
+                [(ngModel)]="contactForm.subject"
+                name="subject"
+                required
+                placeholder="Objet de votre demande"
+              >
+            </div>
+
+            <!-- Message -->
+            <div class="mb-3">
+              <label for="message" class="form-label">Message *</label>
+              <textarea 
+                class="form-control" 
+                id="message"
+                [(ngModel)]="contactForm.message"
+                name="message"
+                rows="5"
+                required
+                placeholder="Décrivez votre projet ou votre demande..."
+              ></textarea>
+            </div>
+
+            <!-- Bouton d'envoi -->
+            <button 
+              type="submit" 
+              class="btn btn-primary w-100"
+              [disabled]="!contactFormRef.form.valid"
+            >
+              Envoyer le message
+            </button>
+          </form>
+
+          <!-- Contact direct -->
+          <hr class="my-4">
+          <div class="text-center">
+            <p class="text-muted small mb-2">Ou contactez directement :</p>
+            <a 
+              href="mailto:{{ artisan.email }}" 
+              class="btn btn-outline-secondary btn-sm"
+            >
+              📧 {{ artisan.email }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Loading spinner -->
+<div *ngIf="loading" class="container py-5">
+  <div class="row">
+    <div class="col-12 text-center">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Chargement...</span>
+      </div>
+      <p class="mt-3">Chargement des informations de l'artisan...</p>
+    </div>
+  </div>
+</div>

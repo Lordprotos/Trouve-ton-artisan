@@ -1,0 +1,191 @@
+<div class="home-container">
+  <header class="hero-section">
+    <h1>Trouve ton artisan</h1>
+    <p class="hero-subtitle">Trouvez l'artisan parfait pour vos projets</p>
+    <p class="hero-description">
+      Découvrez notre réseau d'artisans qualifiés près de chez vous. 
+      Du plombier au menuisier, en passant par l'électricien, nous avons l'expertise qu'il vous faut.
+    </p>
+    <div class="cta-buttons">
+      <a routerLink="/artisans" class="btn btn-primary">Voir les artisans</a>
+      <button class="btn btn-secondary">En savoir plus</button>
+    </div>
+  </header>
+
+  <!-- Section Comment trouver mon artisan -->
+  <section class="how-it-works-section">
+    <div class="container">
+      <h2>Comment trouver votre artisan idéal ?</h2>
+      <p class="section-subtitle">Un processus simple et sécurisé en 4 étapes pour vous connecter avec les meilleurs professionnels</p>
+      <div class="steps-container">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </div>
+          <div class="step-content">
+            <h3>Sélectionnez votre domaine d'expertise</h3>
+            <p>Explorez nos catégories spécialisées (Bâtiment, Services, Fabrication, Alimentation) et identifiez précisément le type d'intervention dont vous avez besoin.</p>
+            <ul class="step-benefits">
+              <li>Plus de 15 spécialités disponibles</li>
+              <li>Classification professionnelle claire</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="8.5" cy="7" r="4"/>
+              <path d="M20 8v6M23 11h-6"/>
+            </svg>
+          </div>
+          <div class="step-content">
+            <h3>Comparez les profils certifiés</h3>
+            <p>Consultez les fiches détaillées de nos artisans avec leurs qualifications, réalisations, avis clients et zones d'intervention pour faire le meilleur choix.</p>
+            <ul class="step-benefits">
+              <li>Profils vérifiés et certifiés</li>
+              <li>Portfolio de réalisations</li>
+              <li>Avis clients authentifiés</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <div class="step-content">
+            <h3>Initiez le contact sécurisé</h3>
+            <p>Utilisez notre système de messagerie intégré pour décrire votre projet en détail et obtenir un premier conseil personnalisé de l'artisan sélectionné.</p>
+            <ul class="step-benefits">
+              <li>Formulaire de contact sécurisé</li>
+              <li>Description détaillée du projet</li>
+              <li>Première estimation possible</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <div class="step-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12,6 12,12 16,14"/>
+            </svg>
+          </div>
+          <div class="step-content">
+            <h3>Recevez une réponse sous 48h garanties</h3>
+            <p>Nos artisans partenaires s'engagent à vous recontacter rapidement pour planifier un rendez-vous, établir un devis détaillé et convenir des modalités d'intervention.</p>
+            <ul class="step-benefits">
+              <li>Engagement de réponse sous 48h</li>
+              <li>Devis détaillé et transparent</li>
+              <li>Planification flexible</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="cta-section">
+        <h3>Prêt à commencer ?</h3>
+        <p>Trouvez dès maintenant l'artisan qui correspond parfaitement à vos besoins</p>
+        <a routerLink="/artisans" class="btn btn-primary btn-lg">Explorer nos artisans</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Artisans du mois -->
+  <section class="artisans-du-mois-section">
+    <div class="container">
+      <h2>Les artisans du mois</h2>
+      <div class="row">
+        <div class="col-md-4" *ngFor="let artisan of artisansDuMois">
+          <div class="card artisan-card">
+            <div class="card-body">
+              <h5 class="card-title">{{ artisan.name }}</h5>
+              <div class="rating mb-2">
+                <span *ngFor="let star of getStars(artisan.note)" class="star">{{ star }}</span>
+                <span class="note-text">{{ artisan.note }}/5</span>
+              </div>
+              <p class="specialty">{{ artisan.specialty }}</p>
+              <p class="location">📍 {{ artisan.location }}</p>
+              <a [routerLink]="['/artisan', artisan.id]" class="btn btn-primary btn-sm">Voir la fiche</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <div class="container">
+      <h2>Pourquoi choisir nos artisans ?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <h3>Expertise Certifiée</h3>
+          <p>Nos artisans possèdent les qualifications professionnelles et l'expérience nécessaires pour garantir un travail de qualité supérieure dans leur domaine d'expertise.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+            </svg>
+          </div>
+          <h3>Service Premium</h3>
+          <p>Bénéficiez d'un service client exceptionnel avec un suivi personnalisé, des conseils d'experts et une garantie satisfaction sur tous nos prestations.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12,6 12,12 16,14"/>
+            </svg>
+          </div>
+          <h3>Réactivité Optimale</h3>
+          <p>Nos artisans s'engagent à répondre à vos demandes sous 48h maximum et à intervenir rapidement selon vos contraintes et disponibilités.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M9 11H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h4m6-6h4a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-4m-6 0V9a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2z"/>
+            </svg>
+          </div>
+          <h3>Proximité Locale</h3>
+          <p>Travaillez avec des artisans de votre région qui connaissent parfaitement les spécificités locales et peuvent intervenir rapidement chez vous.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22,4 12,14.01 9,11.01"/>
+            </svg>
+          </div>
+          <h3>Garanties Incluses</h3>
+          <p>Profitez de garanties étendues sur les travaux réalisés et d'une assurance responsabilité civile professionnelle pour votre tranquillité d'esprit.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <h3>Excellence Reconnue</h3>
+          <p>Nos artisans sont sélectionnés selon des critères stricts et bénéficient d'évaluations régulières par nos clients pour maintenir le plus haut niveau de qualité.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
