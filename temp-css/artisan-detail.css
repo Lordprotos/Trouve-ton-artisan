@@ -1,0 +1,106 @@
+/* Styles pour la fiche artisan */
+.card {
+  transition: all 0.3s ease;
+  border: none;
+  border-radius: 12px;
+}
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.display-5 {
+  font-weight: 700;
+}
+
+.badge {
+  font-size: 0.9em;
+}
+.badge.bg-warning {
+  animation: pulse 2s infinite;
+}
+
+.text-warning {
+  color: var(--color-accent) !important;
+}
+.text-warning span {
+  display: inline-block;
+  animation: sparkle 3s ease-in-out infinite;
+}
+.text-warning span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.text-warning span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.text-warning span:nth-child(4) {
+  animation-delay: 0.6s;
+}
+.text-warning span:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+.text-primary {
+  color: var(--color-primary) !important;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+.btn-outline-primary {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.btn-outline-primary:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.card-header.bg-primary {
+  background-color: var(--color-primary) !important;
+}
+
+.form-control:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 0.2rem rgba(44, 123, 229, 0.25);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes sparkle {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+@media (max-width: 768px) {
+  .display-5 {
+    font-size: 2rem;
+  }
+  .card-body {
+    padding: 1rem;
+  }
+}

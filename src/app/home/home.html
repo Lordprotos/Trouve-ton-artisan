@@ -110,7 +110,7 @@
         <div class="col-md-4" *ngFor="let artisan of artisansDuMois">
           <div class="card artisan-card">
             <div class="card-body">
-              <h5 class="card-title">{{ artisan.name }}</h5>
+              <h3 class="card-title">{{ artisan.name }}</h3>
               <div class="rating mb-2">
                 <span *ngFor="let star of getStars(artisan.note)" class="star">{{ star }}</span>
                 <span class="note-text">{{ artisan.note }}/5</span>

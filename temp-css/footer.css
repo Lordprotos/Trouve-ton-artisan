@@ -1,0 +1,36 @@
+.filter-invert {
+  filter: none;
+}
+
+.text-warning {
+  color: var(--color-accent-green) !important;
+}
+
+.bg-dark {
+  background-color: #fafbfc !important;
+  border-top: 1px solid #e9ecef;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.03);
+}
+
+footer {
+  color: var(--color-neutral) !important;
+}
+footer h5, footer h6 {
+  color: var(--color-neutral) !important;
+}
+footer p, footer small {
+  color: var(--color-text-light) !important;
+}
+footer a {
+  color: var(--color-neutral) !important;
+}
+footer a:hover {
+  color: var(--color-primary) !important;
+  transition: color 0.3s ease;
+}
+footer .text-light, footer .text-white {
+  color: var(--color-neutral) !important;
+}
+footer .text-muted {
+  color: var(--color-text-light) !important;
+}

@@ -1,29 +1,22 @@
-// Styles personnalisés pour les cartes d'artisans avec Bootstrap
-
-// Background neutre pour la page
 .container-fluid {
   background: #fafbfc;
   min-height: 100vh;
 }
 
-// Header de la page
 header {
   background: #ffffff;
   padding: 2rem 1rem;
   border-radius: 12px;
   margin-bottom: 2rem;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
-  
-  .display-4 {
-    color: var(--color-neutral) !important;
-  }
-  
-  .lead {
-    color: var(--color-text-light) !important;
-  }
+}
+header .display-4 {
+  color: var(--color-neutral) !important;
+}
+header .lead {
+  color: var(--color-text-light) !important;
 }
 
-// Styles pour les contrôles de recherche
 .input-group, .form-select {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
@@ -34,11 +27,10 @@ header {
   border: 1px solid #e9ecef;
   background: #ffffff;
   color: var(--color-neutral);
-  
-  &:focus {
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 0.2rem rgba(0, 122, 199, 0.1);
-  }
+}
+.form-control:focus, .form-select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 0.2rem rgba(0, 122, 199, 0.1);
 }
 
 .input-group-text {
@@ -53,19 +45,16 @@ header {
   background: #ffffff;
   border: 1px solid #f0f1f3;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
-  }
-
-  &.border-warning {
-    border-width: 2px;
-    border-color: var(--color-accent-green) !important;
-  }
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+.card.border-warning {
+  border-width: 2px;
+  border-color: var(--color-accent-green) !important;
 }
 
-// Limitation du texte de description
 .description-clamp {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -75,10 +64,9 @@ header {
 
 .badge {
   font-size: 0.85em;
-
-  &.bg-warning {
-    animation: pulse 2s infinite;
-  }
+}
+.badge.bg-warning {
+  animation: pulse 2s infinite;
 }
 
 .text-primary {
@@ -92,11 +80,10 @@ header {
 .btn-outline-primary {
   border-color: var(--color-primary);
   color: var(--color-primary);
-
-  &:hover {
-    background-color: var(--color-primary);
-    border-color: var(--color-primary);
-  }
+}
+.btn-outline-primary:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .bg-primary {
@@ -111,19 +98,21 @@ header {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
 }
 
-// Animations
 @keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
-
-// Responsive adjustments
 @media (max-width: 768px) {
   .display-4 {
     font-size: 2rem;
   }
-  
   .col-md-8, .col-md-4 {
     margin-bottom: 1rem;
   }
