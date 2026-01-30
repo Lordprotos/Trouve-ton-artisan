@@ -15,9 +15,10 @@
               placeholder="Rechercher un artisan, une spécialité, une ville..." 
               [(ngModel)]="searchTerm"
               (input)="onSearch()"
+              aria-label="Rechercher un artisan"
             >
-            <span class="input-group-text">
-              <i class="fas fa-search"></i>
+            <span class="input-group-text" aria-hidden="true">
+              🔍
             </span>
           </div>
         </div>
@@ -26,6 +27,7 @@
             [(ngModel)]="selectedCategory"
             (change)="onCategoryChange()"
             class="form-select"
+            aria-label="Filtrer par catégorie"
           >
             <option *ngFor="let category of categories" [value]="category">
               {{ category }}
